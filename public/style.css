@@ -73,7 +73,7 @@ body {
   }
   p{
     width: 90%;
-    height: 200px;
+    min-height: 200px;
     padding: 10px;
     text-align: start;
     border-radius: 10px;
