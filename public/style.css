@@ -1,0 +1,86 @@
+body {
+    background-color: #1f1b34;
+    min-height: 70vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: "Architects Daughter", cursive;
+    text-align: center;
+    font-size: 130%;
+  }
+  
+  .container {
+    width: auto;
+    height: auto;
+    min-height: 400px;
+    max-width: 700px;
+    min-width: 350px;
+    background: #2a2544;
+    background-size: 25px 25px;
+    border-radius: 20px;
+    box-shadow: 4px 3px 7px 2px #00000040;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .heading h1 {
+    transform: rotate(2deg);
+    padding: 0.2rem 1.2rem;
+    border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+    background-image: linear-gradient(281deg,#420be6,#a16bb3);    
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .form input {
+    box-sizing: border-box;
+    background-color: transparent;
+    padding: 0.7rem;
+    border-bottom-right-radius: 15px 3px;
+    border-bottom-left-radius: 3px 15px;
+    border: solid 3px transparent;
+    border-bottom: dashed 2px rgb(124, 124, 124);
+    font-family: "Architects Daughter", cursive;
+    font-size: 1rem;
+    color: white;
+    width: 70%;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 7px;
+    margin-left: 10px;
+    width: 70px;
+    height: 40px;
+    font-family: "Architects Daughter", cursive;
+    border-radius: 5px;
+    background-image: linear-gradient(281deg,#420be6,#a16bb3);
+    color: white;
+    cursor: pointer;
+    border: none;
+  }
+
+  button:hover{
+    scale: 1.1;
+  }
+  p{
+    width: 90%;
+    height: 200px;
+    padding: 10px;
+    text-align: start;
+    border-radius: 10px;
+    border: 2px solid rgb(124, 124, 124);
+    resize: none;
+    font-family: "Architects Daughter", cursive;
+    font-size: 1rem;
+    color: white;
+    background-color: #373157;
+  }
