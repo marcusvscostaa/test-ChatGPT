@@ -1,34 +1,40 @@
 import React, {useState} from "react";
-const { Configuration, OpenAIApi } = require("openai");
+import Form from "./Form";
+import Pergunta from "./Pergunta";
+import Resposta from "./Resposta";
+
 
 
 function App(){
-    const configuration = new Configuration({
-        apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-    });
-    
-    const openai = new OpenAIApi(configuration);
+   
+    const [chats, setChats] = useState([]);
+    const [pergunta, setPergunta] = useState([]);
 
-    const [resposta, setResposta] = useState("");
-    const [inputText, setInputText] = useState("");
- 
-    async function runCompletion(event) {
-        event.preventDefault();
-        const completion = await openai.createCompletion({  
-            model: "text-davinci-003",
-            prompt: inputText,
-            max_tokens: 200
+    function addChat(newChat){
+        setChats((prevValue) => {
+             return [
+                ...prevValue,
+                newChat
+            ]
         });
-        console.log(completion.data.choices[0].text);
-        setResposta(completion.data.choices[0].text);
-        setInputText("");
     }
 
-    function handlerChage(event){
-        setInputText(event.target.value);
+    function addPergunta(newPergunta){
+        setPergunta((prevValue) =>{
+            return[
+                ...prevValue,
+                newPergunta
+            ]
+        })
     }
 
-
+    function deleteOn(id){
+        setChats((prevItem)=>{
+            return chats.filter((intem, index)=>{
+                return index !== id;
+            })
+        } )
+    }
 
     return(
         <div className="container">
@@ -36,12 +42,19 @@ function App(){
                 <h1>Usando API chatGPT</h1>
             </div>
             <div className="form">
-                <form>
-                    <input onChange={handlerChage} type="text" placeholder="Digite sua pergunta..." value={inputText}/>
-                    <button onClick={runCompletion} type="submit">Enviar</button>
-                    <br/>
-                    <p>{resposta}</p>
-                </form>
+                <div className="chatDiv">
+                {
+                    pergunta.map((item, index) => {
+                        return <div>
+                        <Pergunta pergunta={item} />
+                        <Resposta resposta={chats[index]}/>
+                        </div>
+                    })
+                    
+                }
+              
+                </div>
+                <Form addChat={addChat} addPergunta={addPergunta} />
             </div>
             
         </div>
